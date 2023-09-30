@@ -45,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>404</div>,
+    element: <div>404 Not Found <img src="https://i.pinimg.com/originals/2d/49/35/2d4935ac4f3a974a292630693404be69.gif"></img></div>,
   },
 ]);
 
