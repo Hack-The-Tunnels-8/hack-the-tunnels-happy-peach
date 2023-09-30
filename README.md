@@ -4,6 +4,17 @@
   Annie Zhong
   Piyush Virani
 
+# Git crash course 
+  git status -> see information about what you have committed, added, etc.
+             -> red are the files not added, green are the files added
+  git add . -> add all the files you have changed 
+  git add ./weaera -> all a specific file (or all the files in a specific folder) that you have changed
+  git commit -m "commit message" -> commit all the files you have added
+  git push -> push all the commits you have made 
+           -> (aka publish your changes to the main/communal code)
+  git pull -> pull all the commits other people have pushed 
+           -> (aka get the changes other people have published to the main/communal code)
+
 # Hack The Tunnels - Starter
 
 ![Hack The Tunnels](https://i.imgur.com/hfdpJca.png)
