@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAccountContext } from "../../context";
 import "./Navbar.style.scss";
 
+
 function Navbar() {
   const { loggedIn, logout } = useAccountContext();
   const navigate = useNavigate();
