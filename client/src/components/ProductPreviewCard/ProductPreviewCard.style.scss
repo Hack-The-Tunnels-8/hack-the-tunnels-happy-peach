@@ -1,11 +1,25 @@
 .product-preview-card {
+  background-color: rgb(234, 239, 242);
+  padding: 20px 50px;
+  margin-bottom: 50px;
+
   &__title {
     font-style: bold;
-    color: green;
+    color: rgb(4, 19, 26);
+    font-size: 20px;
+  }
+
+  &__title:hover {
+    text-decoration: underline;
   }
 
   &__description {
-    color: blue;
+    font-style: italic;
+    color: #a8322e;
+  }
+  
+  &__price {
+    color: #a8322e;
   }
 
   &__image {
