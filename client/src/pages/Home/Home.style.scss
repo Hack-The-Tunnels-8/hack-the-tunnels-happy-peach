@@ -1,11 +1,13 @@
 .home-page {
+  padding: 0;
   &__title {
-    color: red;
+    color: #a8322e;
   }
-
+  
   &__products {
     display: flex;
     flex-direction: column;
+    
 
     a {
       text-decoration: none;

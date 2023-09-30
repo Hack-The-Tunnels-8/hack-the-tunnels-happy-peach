@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import { ProductService } from "../../../services";
 import { success, error, verifyAuthorization } from "../utils";
+import { update } from "../../../services/Product";
+
 
 const router = express.Router();
 
@@ -24,6 +26,13 @@ const getProduct = async (request: Request, response: Response) => {
       error: "Product not found.",
       statusCode: 404,
     });
+  }
+
+  if (product.deleted === true){
+    return error(response, {
+      error: "Attempting to access a deleted product",
+      statusCode: 404,
+    })
   }
 
   return success(response, {
@@ -95,5 +104,6 @@ router.get("/", getProducts);
 router.get("/:id", getProduct);
 router.post("/", createProduct);
 router.delete("/:id", deleteProduct);
+router.put("/:id", update);
 
 export default router;
