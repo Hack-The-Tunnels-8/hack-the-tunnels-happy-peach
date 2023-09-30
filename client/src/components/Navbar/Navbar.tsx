@@ -10,20 +10,21 @@ function Navbar() {
 
   return (
     <div className="navbar">
-      <div className="navbar__logo">
-        <Link  to="/"><img width="100px" src="/logo.png"></img></Link>
-      </div>
-      <div className="navbar__account">
-        {loggedIn() === false ? (
-          <>
-            <button onClick={() => navigate("/sign-up")}>Sign Up</button>
-            <button onClick={() => navigate("/login")}>Login</button>
-          </>
-        ) : (
-          <button onClick={() => logout()}>Logout</button>
-        )}
-      </div>
+      <nav>
+          <div className = "navbar__header">
+              <Link  to="/"><img width="100px" src="/logo.png" className="navbar__logo"></img></Link>
+              {loggedIn() === false ? (
+                <>
+                  <button onClick={() => navigate("/sign-up")}>Sign Up</button>
+                  <button onClick={() => navigate("/login")}>Login</button>
+                </>
+              ) : (
+                <button onClick={() => logout()}>Logout</button>
+              )}
+          </div>
+      </nav>
     </div>
+      
   );
 }
 
