@@ -1,4 +1,4 @@
-# Team
+# The Team
   Neyha Billing
   Jialu Li
   Annie Zhong
