@@ -14,6 +14,7 @@ export const find = async (id: string): Promise<Product | null> => {
   return product;
 };
 
+
 export const findMany = async (ids: string[]): Promise<Product[]> => {
   const products = await prisma.product.findMany({
     where: { 
@@ -32,6 +33,16 @@ export const deleteProduct = async(id: string): Promise<Product | null> => {
   })
   return deleteProduct;
 };
+
+export const update = async (id: string, updatedData: any): Promise<Product | null> => {
+  const product = await prisma.product.update({
+    where: { id: parseInt(id) },
+    data: updatedData, 
+  });
+
+  return product;
+};
+
 
 export const create = async (
   title: string,
