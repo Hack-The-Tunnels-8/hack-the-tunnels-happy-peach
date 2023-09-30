@@ -60,8 +60,40 @@ const createProduct = async (request: Request, response: Response) => {
   });
 };
 
+const deleteProduct = async (request: Request, response: Response) => {
+  const authorization = await verifyAuthorization(
+    request.headers.authorization,
+  );
+
+  if (authorization.err) {
+    return error(response, {
+      error: authorization.val.message,
+      statusCode: 401,
+    });
+  }
+  
+  const id = request.params.id;
+  const deletedProduct = await ProductService.deleteProduct(id);
+
+  if (deletedProduct === null) {
+    return error(response, {
+      error: "Product not found.",
+      statusCode: 404,
+    });
+  }
+
+  return success(response, {
+    data: {
+      product: deletedProduct,
+    },
+    statusCode: 201,
+  });
+
+}
+
 router.get("/", getProducts);
 router.get("/:id", getProduct);
 router.post("/", createProduct);
+router.delete("/:id", deleteProduct);
 
 export default router;

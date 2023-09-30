@@ -18,8 +18,16 @@ export const findMany = async (ids: string[]): Promise<Product[]> => {
   const products = await prisma.product.findMany({
     where: { id: { in: ids.map((id) => parseInt(id)) } },
   });
-
+  
   return products;
+};
+
+export const deleteProduct = async(id: string): Promise<Product | null> => {
+  const deleteProduct = await prisma.product.update({
+    where: { id: parseInt(id) },
+    data: { deleted: true,},
+  })
+  return deleteProduct;
 };
 
 export const create = async (
@@ -36,6 +44,7 @@ export const create = async (
       imageUrl: imageUrl,
     },
   });
+
 
   return newProduct;
 };
