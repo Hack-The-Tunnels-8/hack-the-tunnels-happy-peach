@@ -1,12 +1,36 @@
 @keyframes logo-spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .navbar {
-  display: flex;
   width: 100%;
-  justify-content: space-between;
+  background-color: rgb(8, 39, 53);
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly along the main axis (horizontally) */
+  align-items: center; /* Vertically center items */
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.navbar__header {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 20px; /* Add padding to create space around the buttons */
+   /* Push the buttons to the right */
+}
+
+
+.navbar__header button {
+  
+  width:150px;
+  color: white;
+  background-color: #f84d47;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  padding: 3px 10px;
+  margin-left: 10px; /* Adjust the margin to create space between buttons */
 }
 
 .navbar__logo img:hover {
@@ -14,16 +38,18 @@
   animation-duration: 2s;
 }
 
+.navbar__logo img {
+  width: 100px;
+  margin-right: 10px; /* Adjust the margin to create space between logo and buttons */
+}
+
 .navbar__account button {
-  margin: 20px 10px;
-  padding: 5px 10px;
+  display: inline-block;
   color: white;
   background-color: #f84d47;
   border-radius: 10px;
   border: none;
   font-size: 15px;
-}
-
-.navbar {
-  background-color: rgb(8,39,53);
+  padding: 5px 10px;
+  margin: 0 10px; /* Adjust the margin to create space between buttons */
 }
