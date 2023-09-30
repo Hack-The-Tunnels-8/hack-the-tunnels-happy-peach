@@ -6,6 +6,7 @@ import "./Login.style.scss";
 
 function Login() {
   const [message, setMessage] = useState(null);
+
   const { loggedIn, login } = useAccountContext();
   const navigate = useNavigate();
 
@@ -18,6 +19,7 @@ function Login() {
     }
   };
 
+
   useEffect(() => {
     if (loggedIn() === true) {
       navigate("/");
@@ -27,11 +29,30 @@ function Login() {
   return (
     <Page>
       <div className="login-page">
-        <h1>Login</h1>
-        <button onClick={() => attemptLogin()}>
-          Login (as user set in code)
-        </button>
-        {message && <p>{message}</p>}
+        <div className = "container">
+
+        <div className = "login">
+              <form>
+                <label>Login</label>
+            
+                <div>
+                  <input placeholder="email"/>
+                </div> 
+
+                <div>
+                    <input placeholder="password"/>
+                </div>
+            
+                <button onClick={() => attemptLogin()}>
+                  Login
+                </button>
+                {message && <p>{message}</p>}
+              </form>
+        </div>
+     
+      
+        </div>
+        
       </div>
     </Page>
   );
