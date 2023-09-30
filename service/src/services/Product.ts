@@ -16,7 +16,10 @@ export const find = async (id: string): Promise<Product | null> => {
 
 export const findMany = async (ids: string[]): Promise<Product[]> => {
   const products = await prisma.product.findMany({
-    where: { id: { in: ids.map((id) => parseInt(id)) } },
+    where: { 
+      id: { in: ids.map((id) => parseInt(id)) },
+      deleted: false,
+   }, 
   });
   
   return products;

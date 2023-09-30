@@ -26,6 +26,13 @@ const getProduct = async (request: Request, response: Response) => {
     });
   }
 
+  if (product.deleted === true){
+    return error(response, {
+      error: "Attempting to access a deleted product",
+      statusCode: 404,
+    })
+  }
+
   return success(response, {
     data: {
       product: product,
