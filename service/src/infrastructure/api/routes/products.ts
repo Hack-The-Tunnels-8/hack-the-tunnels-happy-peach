@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import { ProductService } from "../../../services";
 import { success, error, verifyAuthorization } from "../utils";
+import { update } from "../../../services/Product";
+
 
 const router = express.Router();
 
@@ -102,5 +104,6 @@ router.get("/", getProducts);
 router.get("/:id", getProduct);
 router.post("/", createProduct);
 router.delete("/:id", deleteProduct);
+router.put("/:id", update);
 
 export default router;
