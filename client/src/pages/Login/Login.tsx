@@ -6,13 +6,15 @@ import "./Login.style.scss";
 
 function Login() {
   const [message, setMessage] = useState(null);
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword ] = useState('');
   const { loggedIn, login } = useAccountContext();
   const navigate = useNavigate();
 
   const attemptLogin = async () => {
     try {
-      const message = await login("admin@email.com", "password");
+      console.log(email, password);
+      const message = await login("j", "e");
       setMessage(message);
     } catch (error) {
       console.log(error);
@@ -36,18 +38,22 @@ function Login() {
                 <label>Login</label>
             
                 <div>
-                  <input placeholder="email"/>
+                  <input placeholder="email" onChange={function(event){
+                    setEmail(event.target.value)
+                  }}/>
                 </div> 
 
                 <div>
-                    <input placeholder="password"/>
+                    <input placeholder="password" onChange={function(disp){
+                      setPassword(disp.target.value)
+                    }}/>
                 </div>
             
                 <button onClick={() => attemptLogin()}>
                   Login
                 </button>
                 {message && <p>{message}</p>}
-              </form>
+            </form>
         </div>
      
       
